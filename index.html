@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>CookStore | Main Portal</title>
+    <title>CookStore | Infrastructure</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -30,9 +30,7 @@
             display: flex;
             align-items: center;
             gap: 16px;
-            transition: background 0.2s;
         }
-        .m3-card:active { background-color: var(--md-sys-color-surface-container-high); }
         .m3-btn {
             background-color: var(--md-sys-color-primary);
             color: var(--md-sys-color-on-primary);
@@ -40,7 +38,6 @@
             padding: 10px 20px;
             font-weight: 600;
             font-size: 13px;
-            border: none;
         }
         .section-header {
             font-size: 11px;
@@ -57,65 +54,60 @@
         <header class="text-center pt-12 mb-10">
             <img src="https://shanikoa043-netizen.github.io/Cookstore/IMG_1656.png" class="w-24 h-24 mx-auto rounded-[32px] shadow-2xl mb-4">
             <h1 class="text-3xl font-bold tracking-tight">CookStore</h1>
-            <p class="text-[9px] opacity-40 font-black uppercase tracking-[0.5em]">Infrastructure v11.0</p>
+            <p class="text-[9px] opacity-40 font-black uppercase tracking-[0.5em]">Stable Infrastructure v11.0</p>
         </header>
 
-        <!-- Profile Section -->
         <div class="m3-card !bg-purple-500/10 border-purple-500/20">
             <div class="w-12 h-12 bg-purple-500/20 text-purple-200 rounded-2xl flex items-center justify-center">
                 <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
             <div class="flex-1">
                 <h3 class="font-bold text-base">Master Bypass</h3>
-                <p class="text-[10px] opacity-50 uppercase font-black">DNS + Anti-Revoke</p>
+                <p class="text-[10px] opacity-50 uppercase font-black">DNS + Anti-Revoke + WebClip</p>
             </div>
             <button onclick="installProfile()" class="m3-btn">Install</button>
         </div>
 
-        <!-- Apps Section -->
-        <div class="section-header">Utility Apps</div>
+        <div class="section-header">Resources</div>
         <div class="m3-card" onclick="location.href='https://api.khoindvn.io.vn/IDcW4P'">
             <img src="https://api.khoindvn.io.vn/IDcW4P" class="w-12 h-12 rounded-xl">
             <div class="flex-1 font-bold">ESign Global</div>
-            <span class="text-[10px] opacity-30 font-black uppercase">Install</span>
+            <span class="text-[10px] opacity-30 font-black uppercase">Get App</span>
         </div>
 
-        <!-- Certificates Section -->
-        <div class="section-header">Certificates & Repos</div>
         <div class="m3-card" onclick="location.href='https://khoindvn.io.vn/document/DNS/ESignCert.zip'">
             <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-gray-400">
                 <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-9l-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/></svg>
             </div>
-            <div class="flex-1">
-                <p class="font-bold text-sm">ESignCert Pack</p>
-                <p class="text-[10px] opacity-40">All working certs (ZIP)</p>
-            </div>
+            <div class="flex-1 font-bold">Certificates Pack</div>
+            <span class="text-[10px] opacity-30 font-black uppercase">ZIP</span>
         </div>
-        
-        <div class="m3-card" onclick="copyRepo()">
+
+        <div class="section-header">Repositories</div>
+        <div class="m3-card" onclick="copyRepo('https://khoindvn.io.vn/repo')">
             <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-gray-400">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"/></svg>
             </div>
             <div class="flex-1">
-                <p class="font-bold text-sm">Main App Repository</p>
-                <p class="text-[10px] opacity-40">Tap to copy link</p>
+                <p class="font-bold text-sm">Main App Repo</p>
+                <p class="text-[9px] opacity-40">khoindvn.io.vn/repo</p>
             </div>
         </div>
 
-        <div class="m3-card mt-12 justify-center opacity-30" onclick="location.href='dns.html'">
-            <span class="text-[10px] font-black uppercase tracking-[0.4em]">Infrastructure Console</span>
+        <div class="mt-12 text-center opacity-20" onclick="location.href='dns.html'">
+            <p class="text-[10px] font-black uppercase tracking-[0.4em]">Infrastructure Console</p>
         </div>
     </div>
 
     <script>
-        function copyRepo() {
+        function copyRepo(url) {
             const el = document.createElement('textarea');
-            el.value = 'https://khoindvn.io.vn/repo';
+            el.value = url;
             document.body.appendChild(el);
             el.select();
             document.execCommand('copy');
             document.body.removeChild(el);
-            alert('Repo URL copied to clipboard');
+            alert('Repo URL copied!');
         }
 
         function generateUUID() {
@@ -137,6 +129,7 @@
             <key>PayloadIdentifier</key><string>com.cook.dns.${generateUUID()}</string>
             <key>PayloadUUID</key><string>${generateUUID()}</string>
             <key>PayloadVersion</key><integer>1</integer>
+            <key>PayloadDisplayName</key><string>CookStore Master DNS</string>
             <key>DNSSettings</key>
             <dict>
                 <key>DNSProtocol</key><string>HTTPS</string>
@@ -144,9 +137,9 @@
                 <key>SupplementalMatchDomains</key>
                 <array>
                     <string>ocsp.apple.com</string><string>certs.apple.com</string><string>crl.apple.com</string>
-                    <string>ocsp2.apple.com</string><string>valid.apple.com</string><string>ocsp.digicert.com</string>
-                    <string>mesu.apple.com</string><string>gdmf.apple.com</string><string>appldnld.apple.com</string>
-                    <string>ppq.apple.com</string><string>attest.apple.com</string>
+                    <string>ocsp2.apple.com</string><string>valid.apple.com</string><string>mesu.apple.com</string>
+                    <string>gdmf.apple.com</string><string>appldnld.apple.com</string><string>ppq.apple.com</string>
+                    <string>attest.apple.com</string><string>world-gen.g.apple.com</string>
                 </array>
                 <key>OnDemandRules</key><array><dict><key>Action</key><string>Connect</string></dict></array>
             </dict>
@@ -165,13 +158,14 @@
             <key>PayloadIdentifier</key><string>com.cook.wc.${generateUUID()}</string>
             <key>PayloadUUID</key><string>${generateUUID()}</string>
             <key>PayloadVersion</key><integer>1</integer>
-            <key>Label</key><string>CookStore</string>
+            <key>Label</key><string>Cook Console</string>
             <key>URL</key><string>https://shanikoa043-netizen.github.io/Cookstore/dns.html</string>
             <key>FullScreen</key><true/>
         </dict>
     </array>
-    <key>PayloadDisplayName</key><string>CookStore Master v11</string>
-    <key>PayloadIdentifier</key><string>com.cookstore.master.v11</string>
+    <key>PayloadDisplayName</key><string>CookStore Master Bypass</string>
+    <key>PayloadIdentifier</key><string>com.cookstore.master</string>
+    <key>PayloadOrganization</key><string>CookStore Official</string>
     <key>PayloadType</key><string>Configuration</string>
     <key>PayloadUUID</key><string>${generateUUID()}</string>
     <key>PayloadVersion</key><integer>1</integer>
