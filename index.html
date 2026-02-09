@@ -3,267 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>CookStore</title>
+    <title>CookStore | Main</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --md-sys-color-primary: #D0BCFF;
             --md-sys-color-on-primary: #381E72;
-            --md-sys-color-primary-container: #4F378B;
-            --md-sys-color-on-primary-container: #EADDFF;
             --md-sys-color-surface: #1C1B1F;
             --md-sys-color-surface-container: #211F26;
             --md-sys-color-on-surface: #E6E1E5;
             --md-sys-color-on-surface-variant: #CAC4D0;
-            --md-sys-color-secondary-container: #332D41;
-            --md-sys-color-on-secondary-container: #E8DEF8;
         }
-
-        body {
-            background-color: var(--md-sys-color-surface);
-            color: var(--md-sys-color-on-surface);
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            -webkit-font-smoothing: antialiased;
-            user-select: none;
+        body { 
+            background: var(--md-sys-color-surface); 
+            color: var(--md-sys-color-on-surface); 
+            font-family: 'Roboto', sans-serif; 
+            margin: 0; 
+            -webkit-tap-highlight-color: transparent;
         }
-
         .m3-font { font-family: 'Google Sans', sans-serif; }
-
-        .app-container {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
         .m3-card {
-            background-color: var(--md-sys-color-surface-container);
+            background: var(--md-sys-color-surface-container);
             border-radius: 28px;
             padding: 16px 20px;
             margin-bottom: 12px;
             border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.1s ease, background-color 0.2s;
             display: flex;
             align-items: center;
             gap: 16px;
-            transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .m3-card:active {
-            background-color: #2B2930;
-            transform: scale(0.97);
-        }
-
-        .btn-primary {
-            background-color: var(--md-sys-color-primary);
-            color: var(--md-sys-color-on-primary);
-            padding: 10px 24px;
-            border-radius: 100px;
-            font-size: 14px;
-            font-weight: 500;
+        .m3-card:active { transform: scale(0.97); background: #2B2930; }
+        .btn-filled { 
+            background: var(--md-sys-color-primary); 
+            color: var(--md-sys-color-on-primary); 
+            padding: 10px 24px; 
+            border-radius: 100px; 
+            font-size: 14px; 
+            font-weight: 700; 
             text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             flex-shrink: 0;
         }
-
-        .icon-box {
-            width: 56px;
-            height: 56px;
-            border-radius: 14px;
-            object-fit: cover;
-            background: #2D2B32;
+        .icon-box { 
+            width: 56px; 
+            height: 56px; 
+            border-radius: 16px; 
+            object-fit: cover; 
+            background: #2D2B32; 
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            flex-shrink: 0;
         }
-
-        .badge {
-            background: var(--md-sys-color-secondary-container);
-            color: var(--md-sys-color-on-secondary-container);
-            padding: 4px 12px;
-            border-radius: 8px;
-            font-size: 11px;
-            font-weight: 700;
-            display: inline-block;
-        }
-
-        .section-label {
-            color: var(--md-sys-color-primary);
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 12px 10px;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        .hero-cookie {
-            font-size: 80px;
-            animation: float 3s infinite ease-in-out;
-            cursor: pointer;
+        .section-label { 
+            color: var(--md-sys-color-primary); 
+            font-size: 11px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 0.15em; 
+            padding: 20px 10px 10px; 
         }
     </style>
 </head>
 <body>
+    <div class="max-w-md mx-auto px-5 pb-24">
+        <header class="py-12 text-center">
+            <img src="https://shanikoa043-netizen.github.io/Cookstore/IMG_1656.png" class="w-24 h-24 mx-auto rounded-[32px] shadow-2xl mb-6 border-4 border-purple-900/20" alt="CookStore">
+            <h1 class="m3-font text-5xl font-normal tracking-tight">CookStore</h1>
+            <p class="text-[10px] opacity-40 mt-3 font-bold uppercase tracking-[0.3em]">Infrastructure v4.1.2</p>
+        </header>
 
-<div class="app-container">
-    <header class="py-12 text-center">
-        <div class="hero-cookie">🍪</div>
-        <h1 class="m3-font text-4xl mt-4 font-normal">CookStore</h1>
-        <div id="status-chip" class="badge mt-2 uppercase tracking-tighter">Detecting Device...</div>
-    </header>
+        <!-- DNS Dashboard Access -->
+        <div class="section-label">Bypass Engine</div>
+        <div class="m3-card" onclick="location.href='dns.html'">
+            <div class="icon-box bg-purple-500/10 text-purple-300">
+                <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="flex-1">
+                <div class="m3-font font-bold text-lg leading-tight">Dns ( Anti-Revoke bypass )</div>
+                <div class="text-xs opacity-50">Install Engine</div>
+            </div>
+            <span class="text-purple-300">
+                <svg width="20" height="20" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </span>
+        </div>
 
-    <div class="section-label">Infrastructure</div>
-    
-    <div class="m3-card" onclick="installDns()">
-        <div class="icon-box bg-[var(--md-sys-color-primary-container)] text-[var(--md-sys-color-on-primary-container)]">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <!-- Certificates Section -->
+        <div class="section-label">Certificates for ipa</div>
+        <div class="m3-card">
+            <div class="icon-box bg-yellow-500/10 text-yellow-200">
+                <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </div>
+            <div class="flex-1">
+                <div class="m3-font font-bold text-lg leading-tight">ESign Certs</div>
+                <div class="text-xs opacity-50">Global ZIP Pack</div>
+            </div>
+            <a href="https://khoindvn.io.vn/document/DNS/ESignCert.zip" class="btn-filled">Install</a>
         </div>
-        <div class="flex-1">
-            <div class="m3-font font-bold text-lg">Dns Install</div>
-            <div class="text-xs text-[var(--md-sys-color-on-surface-variant)]">Anti-Revoke Bypass (Fat Profile)</div>
-        </div>
+
+        <!-- IPA Installers Section -->
+        <div class="section-label">Ipa-installers</div>
+        <div id="signers-list"></div>
+
+        <!-- Repositories Section -->
+        <div class="section-label">Repositories</div>
+        <div id="repos-list"></div>
+
+        <footer class="mt-20 text-center opacity-30 text-[9px] font-bold tracking-[0.4em]">
+            COOKSTORE 2026 • {MODEL:BROWSER;IOS;KIT}
+        </footer>
     </div>
 
-    <a href="https://khoindvn.io.vn/document/DNS/ESignCert.zip" class="m3-card no-underline">
-        <div class="icon-box">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--md-sys-color-primary)" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        </div>
-        <div class="flex-1">
-            <div class="m3-font font-bold text-lg">Certificates Install</div>
-            <div class="text-xs text-[var(--md-sys-color-on-surface-variant)]">IPA Signing P12 & Mobileprovision</div>
-        </div>
-    </a>
-
-    <div class="section-label">IPA Installers</div>
-
-    <div class="m3-card">
-        <img src="https://api.khoindvn.io.vn/IDcW4P" class="icon-box" alt="ESign">
-        <div class="flex-1">
-            <div class="m3-font font-bold text-lg">ESign</div>
-            <div class="text-xs text-[var(--md-sys-color-on-surface-variant)]">Master Signer</div>
-        </div>
-        <a href="https://api.khoindvn.io.vn/IDcW4P" class="btn-primary">Install</a>
-    </div>
-
-    <div class="m3-card">
-        <img src="https://raw.githubusercontent.com/DebianArch64/DebianArch64.github.io/main/icons/scarlet.png" class="icon-box" alt="Scarlet">
-        <div class="flex-1">
-            <div class="m3-font font-bold text-lg">Scarlet</div>
-            <div class="text-xs text-[var(--md-sys-color-on-surface-variant)]">Direct Marketplace</div>
-        </div>
-        <a href="itms-services://?action=download-manifest&url=https://github.com/appfiles2/scarletios/releases/download/scarlet/ScarletAviation.plist" class="btn-primary">Install</a>
-    </div>
-
-    <div class="section-label">Repositories</div>
-    <div id="repo-list"></div>
-
-    <footer class="mt-20 mb-10 text-center">
-        <div class="text-[10px] font-bold tracking-[0.4em] opacity-40 uppercase">Cookstore 2026</div>
-        <div id="footer-meta" class="text-[9px] mt-2 opacity-30">Model: Loading...</div>
-    </footer>
-</div>
-
-<script>
-    const REPO_DATA = [
-        {
-            name: "SideStore Official",
-            icon: "https://apps.sidestore.io/apps/sidestore/v0.1.1/icon.png",
-            url: "https://apps.sidestore.io"
-        },
-        {
-            name: "LiveContainer",
-            icon: "https://raw.githubusercontent.com/LiveContainer/LiveContainer/main/LiveContainer/Assets.xcassets/AppIcon.appiconset/Icon-60%403x.png",
-            url: "https://github.com/LiveContainer/LiveContainer"
-        }
-    ];
-
-    window.onload = () => {
-        const ua = navigator.userAgent;
-        const iosMatch = ua.match(/OS (\d+)_(\d+)/);
-        const iosVer = iosMatch ? `iOS ${iosMatch[1]}.${iosMatch[2]}` : "iOS Core";
-        const device = /iPhone/.test(ua) ? "iPhone" : /iPad/.test(ua) ? "iPad" : "Web";
-        
-        document.getElementById('status-chip').innerText = `iPhone {${iosVer}} Connected`;
-        document.getElementById('footer-meta').innerText = `Model: browser; ${iosVer.toLowerCase()}; kit`;
-
-        const repoContainer = document.getElementById('repo-list');
-        REPO_DATA.forEach(repo => {
-            const el = document.createElement('div');
-            el.className = "m3-card";
-            el.innerHTML = `
-                <img src="${repo.icon}" class="icon-box" onerror="this.src='https://www.google.com/s2/favicons?domain=${new URL(repo.url).hostname}&sz=128'">
-                <div class="flex-1 m3-font font-bold text-white">${repo.name}</div>
-                <a href="${repo.url}" target="_blank" class="text-[var(--md-sys-color-primary)] text-xs font-bold uppercase">View</a>
-            `;
-            repoContainer.appendChild(el);
-        });
-    };
-
-    function installDns() {
-        const genId = () => Math.random().toString(36).substring(2, 15).toUpperCase();
-        const domains = [
-            "ocsp.apple.com", "certs.apple.com", "crl.apple.com", "ocsp2.apple.com", 
-            "valid.apple.com", "ocsp.digicert.cn", "ocsp.digicert.com", "crl3.digicert.com", 
-            "crl4.digicert.com", "ocsp.sectigo.com", "crl.sectigo.com", "vpp.itunes.apple.com",
-            "mesu.apple.com", "gdmf.apple.com", "appldnld.apple.com", "gg.apple.com",
-            "gs.apple.com", "skl.apple.com", "ppq.apple.com", "attest.apple.com",
-            "khoindvn.io.vn", "vuvankhoi.com", "world-gen.g.apple.com", "iphonesubmissions.apple.com",
-            "devicecheck.apple.com", "app-attest.apple.com"
+    <script>
+        const APPS = [
+            { name: "ESign", icon: "https://api.khoindvn.io.vn/IDcW4P", url: "https://api.khoindvn.io.vn/IDcW4P" },
+            { name: "Scarlet", icon: "https://raw.githubusercontent.com/DebianArch64/DebianArch64.github.io/main/icons/scarlet.png", url: "itms-services://?action=download-manifest&url=https://github.com/appfiles2/scarletios/releases/download/scarlet/ScarletAviation.plist" }
         ];
 
-        const config = `<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-    <key>PayloadContent</key>
-    <array>
-        <dict>
-            <key>PayloadType</key><string>com.apple.dnsSettings.managed</string>
-            <key>PayloadIdentifier</key><string>com.cook.dns.${genId()}</string>
-            <key>PayloadUUID</key><string>${genId()}</string>
-            <key>PayloadVersion</key><integer>1</integer>
-            <key>DNSSettings</key>
-            <dict>
-                <key>DNSProtocol</key><string>HTTPS</string>
-                <key>ServerURL</key><string>https://dns.adguard-dns.com/dns-query</string>
-                <key>SupplementalMatchDomains</key>
-                <array>${domains.map(d => `<string>${d}</string>`).join('')}</array>
-                <key>OnDemandRules</key>
-                <array><dict><key>Action</key><string>Connect</string></dict></array>
-            </dict>
-        </dict>
-        <dict>
-            <key>PayloadType</key><string>com.apple.applicationaccess</string>
-            <key>PayloadIdentifier</key><string>com.cook.access.${genId()}</string>
-            <key>PayloadUUID</key><string>${genId()}</string>
-            <key>PayloadVersion</key><integer>1</integer>
-            <key>AllowEnterpriseAppInstallation</key><true/>
-            <key>AllowEnterpriseAppTrust</key><true/>
-            <key>allowUntrustedTLSHierarchy</key><true/>
-        </dict>
-    </array>
-    <key>PayloadDisplayName</key><string>CookStore Master Bypass</string>
-    <key>PayloadIdentifier</key><string>com.cookstore.master</string>
-    <key>PayloadOrganization</key><string>CookStore</string>
-    <key>PayloadType</key><string>Configuration</string>
-    <key>PayloadUUID</key><string>${genId()}</string>
-    <key>PayloadVersion</key><integer>1</integer>
-</dict>
-</plist>`;
+        const REPOS = [
+            { name: "SideStore Official", icon: "https://apps.sidestore.io/apps/sidestore/v0.1.1/icon.png", url: "https://apps.sidestore.io" },
+            { name: "LiveContainer", icon: "https://raw.githubusercontent.com/LiveContainer/LiveContainer/main/LiveContainer/Assets.xcassets/AppIcon.appiconset/Icon-60%403x.png", url: "https://github.com/LiveContainer/LiveContainer" },
+            { name: "SwaggyP13 Repo", icon: "https://github.com/swaggyP13.png", url: "https://swaggyp13.github.io/Repo" }
+        ];
 
-        const blob = new Blob([config.trim()], { type: 'application/x-apple-aspen-config' });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = "CookStore_AntiRevoke.mobileconfig";
-        link.click();
-        setTimeout(() => URL.revokeObjectURL(url), 100);
-    }
-</script>
+        function init() {
+            const sList = document.getElementById('signers-list');
+            const rList = document.getElementById('repos-list');
+            
+            APPS.forEach(app => {
+                sList.innerHTML += `
+                    <div class="m3-card">
+                        <img src="${app.icon}" class="icon-box">
+                        <div class="flex-1 m3-font font-bold text-lg">${app.name}</div>
+                        <a href="${app.url}" class="btn-filled">Install</a>
+                    </div>`;
+            });
+
+            REPOS.forEach(repo => {
+                rList.innerHTML += `
+                    <div class="m3-card" onclick="window.open('${repo.url}')">
+                        <img src="${repo.icon}" class="icon-box" onerror="this.src='https://www.google.com/s2/favicons?domain=${new URL(repo.url).hostname}&sz=128'">
+                        <div class="flex-1 m3-font font-bold text-lg">${repo.name}</div>
+                        <span class="text-[10px] opacity-40 font-bold uppercase">View</span>
+                    </div>`;
+            });
+        }
+        init();
+    </script>
 </body>
 </html>
 
